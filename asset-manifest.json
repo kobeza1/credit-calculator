@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/credit-calculator/static/css/main.6cf37445.css",
+    "main.js": "/credit-calculator/static/js/main.3ce1070f.js",
+    "index.html": "/credit-calculator/index.html",
+    "main.6cf37445.css.map": "/credit-calculator/static/css/main.6cf37445.css.map",
+    "main.3ce1070f.js.map": "/credit-calculator/static/js/main.3ce1070f.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6cf37445.css",
+    "static/js/main.3ce1070f.js"
+  ]
+}
