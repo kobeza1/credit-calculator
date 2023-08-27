@@ -8,16 +8,24 @@ export const FormComponent = ({ updateResult }) => {
   const [years, setYears] = useState("");
 
   const mainFunc = (amount, interest, numberOfYears) => {
+    let data = [];
+
     const annualAmount = amount / numberOfYears;
     const interestPercentage = interest / 100;
     let res = amount;
     console.log(annualAmount);
 
     for (let i = 0; i < numberOfYears; i += 1) {
-      res += (amount - annualAmount * i) * interestPercentage;
-      console.log(res);
+      let object = {
+        year: i + 1,
+        body: annualAmount + (amount - annualAmount * i) * interestPercentage,
+        interest: (amount - annualAmount * i) * interestPercentage,
+        result: (res += (amount - annualAmount * i) * interestPercentage),
+      };
+      data.push(object);
     }
-    return res;
+    console.log(data);
+    return data;
 
     // const res =
     //   amount * interestPercentage +
@@ -29,7 +37,6 @@ export const FormComponent = ({ updateResult }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const result = mainFunc(amount * 1, interest * 1, years * 1);
-    console.log(typeof result);
     updateResult(result);
     setAmount("");
     setInterest("");
@@ -98,7 +105,6 @@ export const FormComponent = ({ updateResult }) => {
           value={years}
           name="years"
           type="number"
-          // placeholder="Interest value"
           onChange={handleName}
         />
       </Form.Group>
