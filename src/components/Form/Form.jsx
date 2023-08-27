@@ -17,14 +17,14 @@ export const FormComponent = ({ updateResult, handleSubmitForm }) => {
     for (let i = 0; i < numberOfYears; i += 1) {
       let object = {
         year: i + 1,
-        body: Math.round(annualAmount),
-        interest: Math.round((amount - annualAmount * i) * interestPercentage),
-        amount: Math.round(
-          annualAmount + (amount - annualAmount * i) * interestPercentage
-        ),
-        result: Math.round(
-          (res += (amount - annualAmount * i) * interestPercentage)
-        ),
+        body: annualAmount.toFixed(2),
+        interest: ((amount - annualAmount * i) * interestPercentage).toFixed(2),
+        amount: (
+          annualAmount +
+          (amount - annualAmount * i) * interestPercentage
+        ).toFixed(2),
+        result: (res +=
+          (amount - annualAmount * i) * interestPercentage).toFixed(2),
       };
       data.push(object);
     }
