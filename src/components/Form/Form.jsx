@@ -17,7 +17,7 @@ export const FormComponent = ({ updateResult, handleSubmitForm }) => {
     for (let i = 0; i < numberOfYears; i += 1) {
       let object = {
         year: i + 1,
-        body: annualAmount,
+        body: Math.round(annualAmount),
         interest: Math.round((amount - annualAmount * i) * interestPercentage),
         amount: Math.round(
           annualAmount + (amount - annualAmount * i) * interestPercentage
