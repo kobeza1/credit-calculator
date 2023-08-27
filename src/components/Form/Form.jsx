@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Button } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
 
-export const FormComponent = ({ updateResult }) => {
+export const FormComponent = ({ updateResult, handleSubmitForm }) => {
   const [amount, setAmount] = useState("");
   const [interest, setInterest] = useState("");
   const [years, setYears] = useState("");
@@ -18,8 +18,9 @@ export const FormComponent = ({ updateResult }) => {
     for (let i = 0; i < numberOfYears; i += 1) {
       let object = {
         year: i + 1,
-        body: annualAmount + (amount - annualAmount * i) * interestPercentage,
+        body: annualAmount,
         interest: (amount - annualAmount * i) * interestPercentage,
+        amount: annualAmount + (amount - annualAmount * i) * interestPercentage,
         result: (res += (amount - annualAmount * i) * interestPercentage),
       };
       data.push(object);
@@ -37,6 +38,11 @@ export const FormComponent = ({ updateResult }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const result = mainFunc(amount * 1, interest * 1, years * 1);
+    handleSubmitForm({
+      years: years * 1,
+      interest: interest * 1,
+      amount: amount * 1,
+    });
     updateResult(result);
     setAmount("");
     setInterest("");
@@ -80,7 +86,7 @@ export const FormComponent = ({ updateResult }) => {
         className="mb-3"
         controlId="exampleForm.ControlInput2"
       >
-        <Form.Label>Interest Value</Form.Label>
+        <Form.Label>Interest Rate</Form.Label>
         <Form.Control
           required
           // minLength={3}

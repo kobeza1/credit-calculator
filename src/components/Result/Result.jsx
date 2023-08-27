@@ -7,16 +7,18 @@ export const Result = ({ res }) => {
         <tr>
           <th>Year</th>
           <th>Credit Body</th>
-          <th>Interest Rate</th>
+          <th>Interest Amount</th>
+          <th>Amount</th>
           <th>Total Amount</th>
         </tr>
       </thead>
       <tbody>
-        {res.map(({ year, body, interest, result }) => (
+        {res.map(({ year, body, interest, amount, result }) => (
           <tr key={year}>
             <td>{year}</td>
             <td>{body}</td>
             <td>{interest}</td>
+            <td>{amount}</td>
             <td>{result}</td>
           </tr>
         ))}
