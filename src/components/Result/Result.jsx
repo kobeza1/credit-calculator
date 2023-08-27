@@ -7,7 +7,7 @@ export const Result = ({ res }) => {
         <tr>
           <th>Year</th>
           <th>Credit Body</th>
-          <th>Interest Amount</th>
+          <th>Interest</th>
           <th>Amount</th>
           <th>Total Amount</th>
         </tr>

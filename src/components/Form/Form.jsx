@@ -9,30 +9,26 @@ export const FormComponent = ({ updateResult, handleSubmitForm }) => {
 
   const mainFunc = (amount, interest, numberOfYears) => {
     let data = [];
+    let res = amount;
 
     const annualAmount = amount / numberOfYears;
     const interestPercentage = interest / 100;
-    let res = amount;
-    console.log(annualAmount);
 
     for (let i = 0; i < numberOfYears; i += 1) {
       let object = {
         year: i + 1,
         body: annualAmount,
-        interest: (amount - annualAmount * i) * interestPercentage,
-        amount: annualAmount + (amount - annualAmount * i) * interestPercentage,
-        result: (res += (amount - annualAmount * i) * interestPercentage),
+        interest: Math.round((amount - annualAmount * i) * interestPercentage),
+        amount: Math.round(
+          annualAmount + (amount - annualAmount * i) * interestPercentage
+        ),
+        result: Math.round(
+          (res += (amount - annualAmount * i) * interestPercentage)
+        ),
       };
       data.push(object);
     }
-    console.log(data);
     return data;
-
-    // const res =
-    //   amount * interestPercentage +
-    //   annualAmount +
-    //   (amount - annualAmount * 1) * interestPercentage +
-    //   (amount - annualAmount * 2) * interestPercentage;
   };
 
   const handleSubmit = (e) => {
